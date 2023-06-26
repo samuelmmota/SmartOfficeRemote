@@ -18,6 +18,8 @@ func ConnectDB() {
 		panic("Error loading .env file")
 	}*/
 
+	var err error
+
 	dbUser := os.Getenv("DB_USERNAME")
 	// If a required environment variable is not set, handle the error appropriately
 	if dbUser == "" {
@@ -46,7 +48,7 @@ func ConnectDB() {
 
 	dsn := dbUser + ":" + dbPass + "@tcp(" + dbHost + ":" + dbPort + ")/" + dbDatabase + "?charset=utf8mb4&parseTime=True&loc=Local"
 
-	Db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	Db, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		panic("Failed to connect to database!" + err.Error())
 	}
