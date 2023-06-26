@@ -1,7 +1,6 @@
 package config
 
 import (
-	"fmt"
 	"go_webserver/entity"
 	"log"
 	"os"
@@ -49,7 +48,7 @@ func ConnectDB() {
 
 	Db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
-		fmt.Println(err.Error())
+		log.Println(err.Error())
 		panic("Failed to connect to database!")
 	}
 
