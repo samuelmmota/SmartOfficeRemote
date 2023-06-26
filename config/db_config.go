@@ -48,8 +48,7 @@ func ConnectDB() {
 
 	Db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
-		log.Println(err.Error())
-		panic("Failed to connect to database!")
+		panic("Failed to connect to database!" + err.Error())
 	}
 
 	err = Db.AutoMigrate(&entity.Mosquitto{}, &entity.SensorData{})
