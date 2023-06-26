@@ -12,7 +12,7 @@ func GetAllSensorData() []entity.SensorData {
 	return sensorDataList
 }
 
-func InsertSensorData(user entity.SensorData) entity.SensorData {
-	config.Db.Save(&user)
-	return user
+func InsertSensorData(sensorData entity.SensorData) entity.SensorData {
+	config.Db.Save(&sensorData)
+	return sensorData
 }

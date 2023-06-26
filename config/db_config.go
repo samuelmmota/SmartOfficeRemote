@@ -66,3 +66,8 @@ func CloseDb() {
 	}
 	db.Close()
 }
+
+// Check if the database connection is established
+func IsDbConnected() bool {
+	return Db != nil
+}
